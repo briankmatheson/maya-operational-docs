@@ -1,6 +1,6 @@
 # Replace a Failed cStor Disk
 
-0. Creating a cStor Pool
+## 0. Creating a cStor Pool
 Show the disks.
 `kubectl get bd -n openebs --show-labels`
 
@@ -46,4 +46,4 @@ metadata:
         value: "cstor-disk-pool"
 ```
 provisioner: openebs.io/provisioner-iscsi
-1. Replacing a failed disk
+## 1. Replacing a failed disk

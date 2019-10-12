@@ -1,10 +1,10 @@
 # Replace a Failed cStor Disk
 
 ## 0. Creating a cStor Pool
-Show the disks.
+* Show the disks.
 `kubectl get bd -n openebs --show-labels`
 
-Create a claim.
+* Create a claim.
 ```
 apiVersion: openebs.io/v1alpha1
 kind: StoragePoolClaim
@@ -24,16 +24,16 @@ spec:
 
 ```
 
-Apply the claim.
+* Apply the claim.
 `kubectl apply -f spc.yaml`
 
-Verify the claim.
+* Verify the claim.
 `get csp`
 
-Verify pool creation on appropriate nodes.
+* Verify pool creation on appropriate nodes.
 `kubectl get pod -n openebs -o wide`
 
-Create a StorageClass that uses the new claim.
+* Create a StorageClass that uses the new claim.
 ```
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -48,15 +48,15 @@ metadata:
 provisioner: openebs.io/provisioner-iscsi
 ## 1. Replacing a failed disk
 
-Exec into the pod associated with the failed disk.
+* Exec into the pod associated with the failed disk.
 `kubectl exec -it cstor-disk-pool-nq1i-7c686f8cb9-zbc4n -n openebs -ccstor-pool-mgmt bash`
 
-Use zpool to check the disk status.
+* Use zpool to check the disk status.
 `zpool status`
 
-Find the device node for the failed disk.
+* Find the device node for the failed disk.
 `kubectl get bd -n openebs blockdevice-bd952ccaa0638d1a5f7ab334e65d7aad -o yaml`
-e.g.
+* e.g.
 ```
 ...
   devlinks:

@@ -122,4 +122,13 @@ replacement.
 * Monitor progress.
 `zpool status`
 
+* Remove block device entry and replace with new disk.
+`kubectl edit spc cstor-disk-pool`
 
+* Verify that the spc has the new device.
+`kubectl get csp --show-labels`
+
+* Remove device link entry and replace with new device.
+`kubectl edit spc cstor-disk-pool`
+
+* Remove the block device claim for the failed drive.

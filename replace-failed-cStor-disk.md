@@ -110,10 +110,10 @@ Spec:
 `kubectl apply -f bdc.yaml`
 
 * Use zpool to replace the disk.
-`zpool replace cstor-7108b3c7-d08d-11e9-bfdd-42010a8000a5 
-/dev/disk/by-id/scsi-0Google_PersistentDisk_cstor-it-disk-9
-/dev/disk/by-id/scsi-0Google_PersistentDisk_cstor-it-disk-10` where
-cstor-7108b3c7-d08d-11e9-bfdd-42010a8000a5 is the pool name,
+```
+zpool replace cstor-7108b3c7-d08d-11e9-bfdd-42010a8000a5  /dev/disk/by-id/scsi-0Google_PersistentDisk_cstor-it-disk-9 /dev/disk/by-id/scsi-0Google_PersistentDisk_cstor-it-disk-10
+```
+where cstor-7108b3c7-d08d-11e9-bfdd-42010a8000a5 is the pool name,
 /dev/disk/by-id/scsi-0Google_PersistentDisk_cstor-it-disk-9 is the
 failed disk, and
 /dev/disk/by-id/scsi-0Google_PersistentDisk_cstor-it-disk-10 is the

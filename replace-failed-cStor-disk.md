@@ -47,3 +47,26 @@ metadata:
 ```
 provisioner: openebs.io/provisioner-iscsi
 ## 1. Replacing a failed disk
+
+Exec into the pod associated with the failed disk.
+`kubectl exec -it cstor-disk-pool-nq1i-7c686f8cb9-zbc4n -n openebs -ccstor-pool-mgmt bash`
+
+Use zpool to check the disk status.
+`zpool status`
+
+Find the device node for the failed disk.
+`kubectl get bd -n openebs blockdevice-bd952ccaa0638d1a5f7ab334e65d7aad -o yaml`
+e.g.
+```
+...
+  devlinks:
+
+  - kind: by-id
+
+    links:
+
+    - /dev/disk/by-id/scsi-0Google_PersistentDisk_cstor-it-disk-10
+
+    - /dev/disk/by-id/google-cstor-it-disk-10
+...
+```

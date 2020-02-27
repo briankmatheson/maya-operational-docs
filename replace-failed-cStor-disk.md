@@ -17,11 +17,6 @@ spec:
     poolType: mirrored
   blockDevices:
     blockDeviceList:
-    - blockdevice-03d66e01c1fea3b985a55ed74bfd54be 
-    - blockdevice-3b867be0018fc6c34b1c882ae1f6fa56
-    - blockdevice-04698fb674505e050359184e4286f3b9
-    - blockdevice-e43146de9b672e5814dbf2a0c9e7c54c 
-
 ```
 
 * Apply the claim.
